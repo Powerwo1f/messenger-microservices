@@ -1,0 +1,22 @@
+{
+  "name": "messenger-microservices",
+  "version": "1.0.0",
+  "description": "A real-time messaging application built with Node.js, PostgreSQL, Redis, WebSockets, RabbitMQ, and Docker, following a microservices architecture.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Powerwo1f/messenger-microservices.git"
+  },
+  "keywords": [
+    "microservices"
+  ],
+  "author": "VOZHD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Powerwo1f/messenger-microservices/issues"
+  },
+  "homepage": "https://github.com/Powerwo1f/messenger-microservices#readme"
+}
