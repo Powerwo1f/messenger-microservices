@@ -1,0 +1,23 @@
+{
+  "name": "auth-microservice",
+  "version": "1.0.0",
+  "description": "Authentication microservice for Messenger project",
+  "main": "src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ioredis": "^5.6.1",
+    "pg": "^8.15.6",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.22"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "@types/node": "^20.4.2"
+  },
+  "author": "VOZHD",
+  "license": "ISC"
+}
