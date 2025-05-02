@@ -1,20 +1,20 @@
-import "reflect-metadata";
-import * as dotenv from "dotenv";
-import { AppDataSource } from "../ormconfig";
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { join } from 'path';
 
-// Загружаем переменные окружения
-dotenv.config();
-
-async function start() {
-    try {
-        await AppDataSource.initialize();
-        console.log("✅ Connected to the database!");
-
-        // Здесь потом запустим сервер (Express/Fastify)
-    } catch (error) {
-        console.error("❌ Failed to connect to the database:", error);
-        process.exit(1);
-    }
+async function bootstrap() {
+    const app = await NestFactory.createMicroservice<MicroserviceOptions>(
+        AppModule,
+        {
+            transport: Transport.GRPC,
+            options: {
+                package: 'auth',
+                protoPath: join(__dirname, '../proto/auth.proto'),
+                url: '0.0.0.0:50051',
+            },
+        },
+    );
+    await app.listen();
 }
-
-start();
+bootstrap();
