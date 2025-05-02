@@ -1,0 +1,17 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "API Gateway for the Messenger project. Handles HTTP and WebSocket requests, delegates actions to microservices via gRPC.",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gateway"
+  ],
+  "author": "VOZHD",
+  "license": "ISC",
+  "dependencies": {
+    "nestjs": "^0.0.1"
+  }
+}
