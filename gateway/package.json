@@ -4,7 +4,8 @@
   "description": "API Gateway for the Messenger project. Handles HTTP and WebSocket requests, delegates actions to microservices via gRPC.",
   "main": "main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/main.js",
+    "build": "nest build"
   },
   "keywords": [
     "gateway"
@@ -12,6 +13,12 @@
   "author": "VOZHD",
   "license": "ISC",
   "dependencies": {
+    "@grpc/grpc-js": "^1.13.3",
+    "@nestjs/microservices": "^11.1.0",
+    "@nestjs/platform-fastify": "^11.1.0",
     "nestjs": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3"
   }
 }

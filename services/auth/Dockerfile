@@ -4,17 +4,19 @@ FROM node:18
 # Рабочая директория внутри контейнера
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
+# Копируем package.json и tsconfig'и
 COPY package*.json ./
+COPY tsconfig*.json ./
 
-# Устанавливаем зависимости
+# Установка зависимостей
 RUN npm install
 
-# Копируем остальной код
-COPY . .
+# Копируем исходный код
+COPY ./src ./src
+COPY ./proto ./proto
 
-# Собираем TypeScript в JS
+# Собираем TypeScript
 RUN npm run build
 
-# Запускаем
+# Запуск
 CMD ["node", "dist/main.js"]

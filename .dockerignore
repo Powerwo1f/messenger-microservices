@@ -1,0 +1,29 @@
+# Общие мусорные и тяжёлые папки
+node_modules
+dist
+coverage
+tmp
+cache
+
+# IDE и редакторы
+.vscode
+.idea
+
+# Git
+.git
+.gitignore
+
+# Docker и конфигурация CI/CD
+docker-compose.yml
+Dockerfile
+*.sh
+
+# Чувствительные данные
+.env
+.env.local
+.env.development
+.env.production
+
+# Документация и прочее
+README.md
+*.log

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15
@@ -32,6 +30,19 @@ services:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
 
+  gateway:
+    build: ./gateway
+    container_name: messenger_gateway
+    restart: always
+    depends_on:
+      - auth
+    environment:
+      AUTH_SERVICE_HOST: auth:50051
+      REDIS_HOST: redis
+      JWT_SECRET: your-secret
+    ports:
+      - "3000:3000"  # или любой внешний порт
+
   auth:
     build: ./services/auth
     container_name: messenger_auth
@@ -40,13 +51,18 @@ services:
       - postgres
       - redis
     environment:
-      POSTGRES_URL: postgres://postgres:postgres@postgres:5432/messenger
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: messenger
       REDIS_HOST: redis
-    ports:
-      - "3001:3000"
-    volumes:
-      - ./services/auth:/app
-      - /app/node_modules
+      JWT_SECRET: your-secret
+#    volumes:
+#      - ./services/auth:/app
+#      - /app/node_modules
+    # ports:
+    #   - "50051:50051" # если хочешь gRPC наружу
 
 volumes:
   pgdata:

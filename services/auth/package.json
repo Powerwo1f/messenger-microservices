@@ -4,10 +4,18 @@
   "description": "Authentication microservice for Messenger project",
   "main": "src/main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/main.js",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main.js",
+    "build": "nest build"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.13.3",
+    "@grpc/proto-loader": "^0.7.15",
+    "@nestjs/core": "^11.1.0",
     "@nestjs/jwt": "^11.0.0",
+    "@nestjs/microservices": "^11.1.0",
+    "@nestjs/typeorm": "^11.0.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.5.0",
     "ioredis": "^5.6.1",
@@ -16,10 +24,11 @@
     "typeorm": "^0.3.22"
   },
   "devDependencies": {
+    "@nestjs/cli": "^11.0.7",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.4.2",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.8.3"
   },
   "author": "VOZHD",
   "license": "ISC"
