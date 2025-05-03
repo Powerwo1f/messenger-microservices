@@ -1,22 +1,30 @@
-import { AUTH_CLIENT } from "../grpc-clients/auth.client";
+import { Controller, Post } from "@nestjs/common";
 import { FastifyRequest, FastifyReply } from "fastify";
-import { ServiceError } from "@grpc/grpc-js";
+import { AuthService } from "../services/auth.service";
 
-export const login = async (
-    request: FastifyRequest,
-    reply: FastifyReply
-) => {
-    const { username, password } = request.body as {
-        username: string;
-        password: string;
-    };
+@Controller("auth")
+export class AuthController {
+    constructor(private readonly authService: AuthService) {}
 
-    AUTH_CLIENT.Login({ username, password }, (err: ServiceError | null, response: any) => {
-        if (err) {
-            return reply.status(500).send({ error: err.message });
-        }
+    @Post("login")
+    async login(request: FastifyRequest, reply: FastifyReply) {
+        const { username, password } = request.body as {
+            username: string;
+            password: string;
+        };
 
-        reply.send(response);
-    });
-};
+        const result = await this.authService.login(username, password);
+        reply.send(result);
+    }
 
+    @Post("register")
+    async register(request: FastifyRequest, reply: FastifyReply) {
+        const { username, password } = request.body as {
+            username: string;
+            password: string;
+        };
+
+        const result = await this.authService.register(username, password);
+        reply.send(result);
+    }
+}

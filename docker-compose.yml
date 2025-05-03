@@ -36,8 +36,10 @@ services:
     restart: always
     depends_on:
       - auth
+    env_file:
+      - ./gateway/.env
     environment:
-      AUTH_SERVICE_HOST: auth:50051
+      AUTH_SERVICE_URL: auth:50051
       REDIS_HOST: redis
       JWT_SECRET: your-secret
     ports:
