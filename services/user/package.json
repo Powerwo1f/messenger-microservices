@@ -1,0 +1,29 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "scripts": {
+    "proto:gen": "protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts_proto --ts_out=src/grpc-clients --proto_path=./proto ./proto/*.proto"
+  },
+  "author": "VOZHD",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.7.15",
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/microservices": "^11.1.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "pg": "^8.15.6",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.15",
+    "ts-proto": "^2.7.0"
+  }
+}

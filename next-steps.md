@@ -27,7 +27,7 @@ gateway/
 ---
 
 ### 2. 🔐 Реализация Auth логики
-- [ ] `POST /register` → вызывает gRPC `authService.register`
+- [x] `POST /register` → вызывает gRPC `authService.register`
 - [ ] `GET /me` → проверяет сессию и вызывает `authService.getMe`
 - [ ] Настроить cookie-сессию или JWT (временный `token.user` объект пока можно захардкодить)
 
@@ -49,9 +49,9 @@ gateway/
 ---
 
 ### 5. 🧰 Инфраструктура:
-- [ ] `tsconfig.json` → настроить rootDir = "src", outDir = "dist"
-- [ ] Создать `Dockerfile` для gateway
-- [ ] Настроить `docker-compose.yml` со всеми сервисами + Redis + Postgres
+- [x] `tsconfig.json` → настроить rootDir = "src", outDir = "dist"
+- [x] Создать `Dockerfile` для gateway
+- [x] Настроить `docker-compose.yml` со всеми сервисами + Redis + Postgres
 
 ---
 

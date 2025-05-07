@@ -7,7 +7,7 @@ export class UserController {
     constructor(private readonly userService: UserService) {}
 
     @GrpcMethod("UserService", "GetUserById")
-    getUserById(data: { id: number }) {
+    async getUserById(data: { id: number }) {
         return this.userService.getUserById(data.id);
     }
 }

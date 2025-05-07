@@ -66,5 +66,20 @@ services:
     # ports:
     #   - "50051:50051" # если хочешь gRPC наружу
 
+  user:
+    build: ./services/user
+    container_name: messenger_user
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: messenger
+    # ports:
+    #   - "50052:50052" # если нужно наружу
+
 volumes:
   pgdata:
